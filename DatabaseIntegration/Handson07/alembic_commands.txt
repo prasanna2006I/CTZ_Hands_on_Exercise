@@ -1,0 +1,30 @@
+# Install Alembic
+pip install alembic
+# Initialize Alembic
+alembic init alembic
+# Configure database URL in alembic.ini
+sqlalchemy.url = mysql+pymysql://root:password@localhost/college_db
+
+# Generate migration
+alembic revision --autogenerate -m "Initial Migration"
+
+# Apply migration
+alembic upgrade head
+
+# Check current version
+alembic current
+
+# View migration history
+alembic history
+
+# Create another migration
+alembic revision --autogenerate -m "Update Student Table"
+
+# Upgrade database
+alembic upgrade head
+
+# Downgrade one version
+alembic downgrade -1
+
+# Downgrade to base
+alembic downgrade base
